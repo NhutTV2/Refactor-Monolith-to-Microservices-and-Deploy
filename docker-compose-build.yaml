@@ -15,4 +15,4 @@ services:
   frontend:
     build:
       context: ./udagram-frontend
-    image: nhuttv2/udagram-frontend:local
+    image: nhuttv2/udagram-frontend
