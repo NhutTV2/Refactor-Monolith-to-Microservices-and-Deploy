@@ -337,4 +337,20 @@ press CTRL+C to stop server
 2023/08/19 04:07:19 [error] 31#31: *253 open() "/usr/share/nginx/html/robots.txt" failed (2: No such file or directory), client: 192.168.34.122, server: localhost, request: "GET /robots.txt HTTP/1.1", host: "bk.webdamdb.com"
 192.168.34.122 - - [19/Aug/2023:04:07:19 +0000] "GET /robots.txt HTTP/1.1" 404 153 "-" "webprosbot/2.0 (+mailto:abuse-6337@webpros.com)" "-"
 192.168.34.122 - - [19/Aug/2023:04:07:19 +0000] "GET / HTTP/1.1" 200 927 "-" "webprosbot/2.0 (+mailto:abuse-6337@webpros.com)" "-"
+(base) DO1-BBS3-54L:~ bbs3.lind$ kubectl autoscale deployment backend-api-feed --cpu-percent=70 --min=3 --max=5
+horizontalpodautoscaler.autoscaling/backend-api-feed autoscaled
+(base) DO1-BBS3-54L:~ bbs3.lind$ kubectl describe hpa
+Warning: autoscaling/v2beta2 HorizontalPodAutoscaler is deprecated in v1.23+, unavailable in v1.26+; use autoscaling/v2 HorizontalPodAutoscaler
+Name:                                                  backend-api-feed
+Namespace:                                             default
+Labels:                                                <none>
+Annotations:                                           <none>
+CreationTimestamp:                                     Sat, 19 Aug 2023 11:13:15 +0700
+Reference:                                             Deployment/backend-api-feed
+Metrics:                                               ( current / target )
+  resource cpu on pods  (as a percentage of request):  <unknown> / 70%
+Min replicas:                                          3
+Max replicas:                                          5
+Deployment pods:                                       0 current / 0 desired
+Events:                                                <none>
 (base) DO1-BBS3-54L:~ bbs3.lind$ 
